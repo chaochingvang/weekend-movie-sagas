@@ -6,21 +6,27 @@ import { useHistory } from "react-router";
 function MovieDetails() {
     const dispatch = useDispatch();
     const history = useHistory();
+
+    //grab current movie details from reducer 
     const movie = useSelector(store => store.currentDetail);
+    //grab current movie genre from reducer
     const genres = useSelector(store => store.currentGenres);
 
+    //initial render
     useEffect(() => {
+        //if a movie was selected, dispatched to fetch genres of selected movie
         if (movie !== `noMovie`) {
             dispatch({ type: `FETCH_CURRENT_GENRES`, payload: movie.id })
         }
     }, []);
 
+    //on click, navigate back to home
     const handleClick = () => {
         history.push(`/`);
     }
 
-    let genreRender = genres.map(genre => (<> {genre.name} -</>));
-
+    //conditional rendering
+    //if no movie was selected, renders and tell user to select a movie to see details
     return (<>{movie === `noMovie` ?
         <>
             <h1>No movie selected!</h1>
@@ -32,7 +38,7 @@ function MovieDetails() {
             <img src={movie.poster} />
             <h1>{movie.title}</h1>
             <p>Genres: <br />
-            - {genreRender}</p>
+                - {genres.map(genre => (<> {genre.name} -</>))}</p>
             <p>{movie.description}</p>
             <button onClick={handleClick}>Back</button>
        </>}

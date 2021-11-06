@@ -6,7 +6,11 @@ function MovieForm() {
 
     const dispatch = useDispatch();
     const history = useHistory();
+
+    //grabbing genres from reducer
     const genres = useSelector(store => store.genres)
+
+    //creating local state to store user input before sending to server
     const [movieInput, setMovieInput] = useState({
         title: ``,
         poster: ``,
@@ -14,29 +18,31 @@ function MovieForm() {
         description: ``
     });
 
+    //on load, grab the list of genres
     useEffect(() => {
         dispatch({ type: `FETCH_GENRES` });
     }, []);
 
-
+    //on click
     const handleSubmit = (event) => {
         event.preventDefault();
+        //if any input fields are left blank, alert user to enter information
         if ((movieInput.title === ``) ||
             (movieInput.poster === ``) ||
             (movieInput.genre === ``) ||
             (movieInput.description === ``)) {
             alert(`Please enter all information!`)
         }
+        //otherwise, dispatch to post movie
         else {
             dispatch({ type: `ADD_MOVIE`, payload: movieInput });
+            history.push(`/`);
         }
     }
 
-    console.log(movieInput);
 
     return (<>
-        <h1>MOVIE FORM COMPONENT</h1>
-        
+        <h1>ADD A NEW MOVIE</h1>
 
         <form onSubmit={handleSubmit}>
             <label>Title: </label>

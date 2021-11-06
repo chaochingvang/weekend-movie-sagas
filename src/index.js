@@ -24,6 +24,7 @@ function* fetchAllMovies() {
     // get all movies from the DB
     try {
         const movies = yield axios.get('/api/movie');
+        //store response from db into reducer
         yield put({ type: 'SET_MOVIES', payload: movies.data });
 
     } catch (err){
@@ -31,24 +32,29 @@ function* fetchAllMovies() {
     }
 }
 
+// get the genres of the current movie that was selected 
 function* fetchCurrentGenres(action) {
     try {
         const response = yield axios.get(`/api/genre/${action.payload}`)
+        //store response from db into reducer
         yield put({ type: `SET_CURRENT_GENRES`, payload: response.data });
     } catch (err) {
         console.log(`fetchCurrentGenres ERROR!`, err);
     }
 }
 
+// get the list of all the genres
 function* fetchGenres(action) {
     try {
         const response = yield axios.get(`/api/genre`);
+        //store response from db into reducer
         yield put({ type: `SET_GENRES`, payload: response.data });
     } catch (err) {
         console.log(`fetchGenres ERROR!`, err);
     }
 }
 
+//add movie to db
 function* addMovie(action) {
     try {
         axios.post(`/api/movie`, {
@@ -57,6 +63,7 @@ function* addMovie(action) {
             description: action.payload.description,
             genre_id: action.payload.genre
         })
+        //get the list of movies again to refresh dom
         yield put({ type: `FETCH_MOVIES` });
     } catch (err) {
         console.log(`addMovie ERROR!`, err);
