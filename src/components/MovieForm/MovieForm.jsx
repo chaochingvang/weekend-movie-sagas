@@ -31,6 +31,7 @@ function MovieForm() {
         <button onClick={() => history.push(`/`)}>Back</button>
 
         <form onSubmit={handleSubmit}>
+            <label>Title: </label>
             <input
                 placeholder="title"
                 value={movieInput.title}
@@ -38,6 +39,8 @@ function MovieForm() {
                     setMovieInput({ ...movieInput, title: event.target.value })
                     }
             />
+            <br />
+            <label>Image URL: </label>
             <input
                 placeholder="url"
                 value={movieInput.poster}
@@ -45,6 +48,8 @@ function MovieForm() {
                     setMovieInput({ ...movieInput, poster: event.target.value })
                     }
             />
+            <br />
+            <label>Genre: </label>
             <select
                 value={movieInput.genre}
                 onChange={(event) => setMovieInput({...movieInput, genre: event.target.value})}>
@@ -53,7 +58,16 @@ function MovieForm() {
                     <option key={genre.id} value={genre.id}>{genre.name}</option>
                 ))}
             </select>
-            <textarea />
+            <br />
+            <label>Description: </label>
+            <textarea
+                rows={4}
+                cols={30}
+                value={movieInput.description}
+                onChange={(event) => setMovieInput({...movieInput, description: event.target.value})}
+                >
+            </textarea>
+            <br />
             <button type="submit">Submit</button>
         </form>
     </>)
