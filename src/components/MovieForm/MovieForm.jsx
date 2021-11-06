@@ -21,9 +21,15 @@ function MovieForm() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log(`clicked`);
-
-        dispatch({ type: `ADD_MOVIE`, payload: movieInput});
+        if ((movieInput.title === ``) ||
+            (movieInput.poster === ``) ||
+            (movieInput.genre === ``) ||
+            (movieInput.description === ``)) {
+            alert(`Please enter all information!`)
+        }
+        else {
+            dispatch({ type: `ADD_MOVIE`, payload: movieInput });
+        }
     }
 
     console.log(movieInput);
@@ -31,7 +37,6 @@ function MovieForm() {
     return (<>
         <h1>MOVIE FORM COMPONENT</h1>
         
-        <button onClick={() => history.push(`/`)}>Back</button>
 
         <form onSubmit={handleSubmit}>
             <label>Title: </label>
@@ -71,7 +76,8 @@ function MovieForm() {
                 >
             </textarea>
             <br />
-            <button type="submit">Submit</button>
+            <button type="button" onClick={() => history.push(`/`)}>Cancel</button>
+            <button type="submit">Save</button>
         </form>
     </>)
 }
