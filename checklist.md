@@ -4,9 +4,9 @@
     [x]details useSelector the reducer for movie details
 
 # DETAILS PAGE
-[]BACK btn to list
-[]SHOW ALL GENRES
-    []GET FROM DB FOR SPECIFIC MOVIE
+[x]BACK btn to list
+[x]SHOW ALL GENRES
+    [x]GET FROM DB FOR SPECIFIC MOVIE
 
 # LIST PAGE
 []Btn to history.push to FORM

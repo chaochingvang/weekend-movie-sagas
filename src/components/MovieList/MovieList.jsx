@@ -24,6 +24,10 @@ function MovieList() {
     return (
         <main>
             <h1>MovieList</h1>
+            <div>
+                <h4>Your favorite movie not listed? </h4>
+                <button onClick={() => history.push(`/form`)}>ADD NEW MOVIE</button>
+            </div>
             <section className="movies">
                 {movies.map(movie => {
                     return (
