@@ -15,12 +15,15 @@ function MovieForm() {
     });
 
     useEffect(() => {
-        dispatch({ type: `FETCH_GENRES` })
+        dispatch({ type: `FETCH_GENRES` });
     }, []);
 
 
-    const handleSubmit = () => {
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        console.log(`clicked`);
 
+        dispatch({ type: `ADD_MOVIE`, payload: movieInput});
     }
 
     console.log(movieInput);
