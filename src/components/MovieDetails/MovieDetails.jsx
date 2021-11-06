@@ -7,11 +7,11 @@ function MovieDetails() {
     const dispatch = useDispatch();
     const history = useHistory();
     const movie = useSelector(store => store.currentDetail);
-    const genres = useSelector(store => store.genres);
+    const genres = useSelector(store => store.currentGenres);
 
     useEffect(() => {
         if (movie !== `noMovie`) {
-            dispatch({ type: `FETCH_GENRES`, payload: movie.id })
+            dispatch({ type: `FETCH_CURRENT_GENRES`, payload: movie.id })
         }
     }, []);
 

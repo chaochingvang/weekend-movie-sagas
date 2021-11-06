@@ -15,7 +15,8 @@ import axios from 'axios';
 // Create the rootSaga generator function
 function* rootSaga() {
     yield takeEvery('FETCH_MOVIES', fetchAllMovies);
-    yield takeEvery(`FETCH_GENRES`, fetchGenres);
+    yield takeEvery(`FETCH_CURRENT_GENRES`, fetchCurrentGenres);
+    yield takeEvery(`FETCH_GENRES`, fetchGenres)
 }
 
 function* fetchAllMovies() {
@@ -30,11 +31,20 @@ function* fetchAllMovies() {
     }
 }
 
-function* fetchGenres(action) {
+function* fetchCurrentGenres(action) {
     try {
         const response = yield axios.get(`/api/genre/${action.payload}`)
         console.log(`response.data is`, response.data);
-        yield put({type: `SET_GENRES`, payload:response.data})
+        yield put({ type: `SET_CURRENT_GENRES`, payload: response.data });
+    } catch (err) {
+        console.log(`fetchGenres ERROR!`, err);
+    }
+}
+
+function* fetchGenres(action) {
+    try {
+        const response = yield axios.get(`/api/genre`);
+        yield put({ type: `SET_GENRES`, payload: response.data });
     } catch (err) {
         console.log(`fetchGenres ERROR!`, err);
     }
@@ -56,10 +66,20 @@ const movies = (state = [], action) => {
     }
 }
 
-// Used to store the movie genres
+// Used to store all genre list
 const genres = (state = [], action) => {
     switch (action.type) {
         case 'SET_GENRES':
+            return action.payload;
+        default:
+            return state;
+    }
+}
+
+// Used to store the current movie's genres
+const currentGenres = (state = [], action) => {
+    switch (action.type) {
+        case 'SET_CURRENT_GENRES':
             return action.payload;
         default:
             return state;
@@ -82,6 +102,7 @@ const storeInstance = createStore(
     combineReducers({
         movies,
         genres,
+        currentGenres,
         currentDetail,
     }),
     // Add sagaMiddleware to our store

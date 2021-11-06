@@ -9,7 +9,7 @@
     [x]GET FROM DB FOR SPECIFIC MOVIE
 
 # LIST PAGE
-[]Btn to history.push to FORM
+[x]Btn to history.push to FORM
 
 # ADD MOVIE FORM
 []input fields for TITLE

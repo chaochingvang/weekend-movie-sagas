@@ -2,8 +2,24 @@ const express = require('express');
 const router = express.Router();
 const pool = require('../modules/pool')
 
+
+router.get(`/`, (req, res) => {
+  let queryText = `SELECT * FROM "genres";`;
+
+  pool.query(queryText)
+    .then((response) => {
+      console.log(`/api/genre GET successful!`);
+      res.send(response.rows);
+    })
+    .catch((err) => {
+      console.log(`ERROR! /api/genre GET fail!`, err);
+      res.sendStatus(500);
+    });
+})
+
+
+
 router.get('/:id', (req, res) => {
-  // Add query to get all genres
   console.log(`req.params`, req.params.id);
 
   let id = req.params.id;
@@ -20,7 +36,7 @@ router.get('/:id', (req, res) => {
 
   pool.query(queryText, values)
     .then((response) => {
-      console.log(`/api/genre GET successful`);
+      console.log(`/api/genre/${id} GET successful`);
       console.log(response);
       res.send(response.rows);
     })
