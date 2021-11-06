@@ -1,7 +1,7 @@
-[]onImgClick
-    []dispatch data to reducer
-    []history.push to details
-    []details useSelector the reducer for movie details
+[x]onImgClick
+    [x]dispatch data to reducer
+    [x]history.push to details
+    [x]details useSelector the reducer for movie details
 
 # DETAILS PAGE
 []BACK btn to list

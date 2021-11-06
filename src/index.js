@@ -56,7 +56,7 @@ const genres = (state = [], action) => {
 }
 
 // reducer to store current movie details
-const currentDetail = (state = {}, action) => {
+const currentDetail = (state = `noMovie`, action) => {
     switch (action.type) {
         case 'SET_DETAILS':
             console.log(`this is payload`, action.payload);
