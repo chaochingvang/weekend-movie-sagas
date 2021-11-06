@@ -14,10 +14,14 @@ function App() {
         </Route>
         
         {/* Details page */}
-        <MovieDetails />
+        <Route path="/details">
+          <MovieDetails />
+        </Route>
 
         {/* Add Movie page */}
-        <MovieForm />
+        <Route path="/form">
+          <MovieForm />
+        </Route>
 
       </Router>
     </div>
