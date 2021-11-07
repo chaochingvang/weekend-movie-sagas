@@ -1,12 +1,18 @@
 .App {
   text-align: center;
+  background-color: #eeeeee;
 }
 
 .header {
   margin-top: -8px;
   padding: 1em;
   margin-bottom: 1em;
-  background-color: cornflowerblue;
+  background-color: #b3e5fc
+;
+}
+
+.footer {
+    background-color: #b3e5fc;
 }
 
 .App-header {

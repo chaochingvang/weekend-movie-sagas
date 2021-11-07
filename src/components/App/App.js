@@ -18,13 +18,13 @@ function App() {
   return (
     <div className="App">
       <div className="header">
-      <Typography variant="h2">The Movies Saga!</Typography>
+        <Typography variant="h2">The Movies Saga!</Typography>
       </div>
-      <Router>        
+      <Router>
         <Route path="/" exact>
-            <MovieList />
+          <MovieList />
         </Route>
-        
+
         {/* Details page */}
         <Route path="/details">
           <MovieDetails />
@@ -34,6 +34,10 @@ function App() {
         <Route path="/form">
           <MovieForm />
         </Route>
+
+        <div className="footer">
+          <Typography variant="subtitle">&copy; Chaoching Vang</Typography>
+        </div>
 
       </Router>
     </div>

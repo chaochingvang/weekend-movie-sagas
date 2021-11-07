@@ -27,15 +27,15 @@ function MovieItems({ movie }) {
                 width: 300,
                 height: 400,
                 margin: 'auto',
-                padding: '3px'
+                padding: '1em'
             }}>
                 <Card
                     variant="outlined"
                     sx={{
-                        width: 300,
+                        width: '100%',
                         height: 400,
                         margin: 'auto',
-                        backgroundColor: 'beige'
+                        backgroundColor: '#b2dfdb'
                     }}>
                     <h3>{movie.title}</h3>
                     <img

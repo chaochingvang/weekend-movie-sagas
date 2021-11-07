@@ -4,8 +4,9 @@ import { useHistory } from "react-router";
 import './MovieDetails.css'
 
 //mui imports
-import { Box, Typography } from '@mui/material'
+import { Box, Typography, Button } from '@mui/material'
 import Card from '@mui/material/Card';
+import HomeIcon from '@mui/icons-material/Home';
 
 function MovieDetails() {
     const dispatch = useDispatch();
@@ -35,7 +36,16 @@ function MovieDetails() {
         <>
             <Typography variant="h1">No movie selected!</Typography>
             <h3>Please go back and select a movie to view its details!</h3>
-            <button onClick={handleClick}>Back</button>
+            <Button
+                variant="outlined"
+                startIcon={<HomeIcon />}
+                onClick={handleClick}
+                sx={{
+                    color: 'black',
+                }}
+            >
+                Back
+            </Button>
         </> :
         
         <>
@@ -50,7 +60,7 @@ function MovieDetails() {
                         width: 300,
                         height: 400,
                         margin: 'auto',
-                        backgroundColor: 'beige',
+                        backgroundColor: '#b2dfdb',
                         border: 'solid black'
                     }}>
                     <img
@@ -64,7 +74,16 @@ function MovieDetails() {
                 <p style={{textDecoration:'underline'}}>Genres: </p>
                 <p>- {genres.map(genre => (<> {genre.name} -</>))} <br/></p>
                 <p>{movie.description}</p>
-                <button onClick={handleClick}>Back</button>
+                    <Button
+                        variant="outlined"
+                        startIcon={<HomeIcon />}
+                        onClick={handleClick}
+                        sx={{
+                            color: 'black',
+                        }}
+                    >
+                        Back
+                    </Button>
                 </Typography>
             </div>
        </>}

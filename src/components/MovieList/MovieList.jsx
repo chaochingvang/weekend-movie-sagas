@@ -9,6 +9,8 @@ import {Box} from '@mui/material'
 import Card from '@mui/material/Card';
 import Button from '@mui/material/Button';
 import AddCircleOutlineOutlinedIcon from '@mui/icons-material/AddCircleOutlineOutlined';
+import MovieOutlinedIcon from '@mui/icons-material/MovieOutlined';
+
 function MovieList() {
 
     const dispatch = useDispatch();
@@ -25,17 +27,18 @@ function MovieList() {
                 <Box
                     sx={{
                         width: 300,
-                        height: 100,
+                        height: 200,
                         // backgroundColor: 'primary.dark',
                         // border: '3px dashed black',
                         margin: 'auto',
                     }}>
                     <Card sx={{
                         width: 300,
-                        height: 100,
+                        height: 150,
                         backgroundColor: 'pink'
                     }}>
-                    <h4>Your favorite movie not listed? </h4>
+                        <h4>Your favorite movie not listed? </h4>
+                        <MovieOutlinedIcon fontSize="large" /> <br />
                         <Button
                             sx={{
                                 color: 'black',
