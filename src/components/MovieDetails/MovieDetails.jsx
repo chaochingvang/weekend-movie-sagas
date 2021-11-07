@@ -61,8 +61,8 @@ function MovieDetails() {
                 </Box>
             <div className="details">
                 <Typography variant="body1">
-                <p>Genres: <br />
-                    - {genres.map(genre => (<> {genre.name} -</>))}</p>
+                <p style={{textDecoration:'underline'}}>Genres: </p>
+                <p>- {genres.map(genre => (<> {genre.name} -</>))} <br/></p>
                 <p>{movie.description}</p>
                 <button onClick={handleClick}>Back</button>
                 </Typography>
