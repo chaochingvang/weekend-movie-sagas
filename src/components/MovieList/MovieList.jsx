@@ -1,7 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
 import './MovieList.css'
+import MovieItems from '../MovieItems/MovieItems.jsx';
 
 //mui imports
 import {Box} from '@mui/material'
@@ -18,17 +19,8 @@ function MovieList() {
         dispatch({ type: 'FETCH_MOVIES' });
     }, []);
 
-
-    const handleMovieClick = (movie) => {
-        //dispatching to store selected movie details 
-        dispatch({ type: `SET_DETAILS`, payload: movie });
-
-        history.push(`/details`);
-    }
-
     return (
         <main>
-            <h1>MovieList</h1>
             <div className="formBox">
                 <Box
                     sx={{
@@ -59,10 +51,9 @@ function MovieList() {
             <section className="movies">
                 {movies.map(movie => {
                     return (
-                        <div key={movie.id} >
-                            <h3>{movie.title}</h3>
-                            <img src={movie.poster} alt={movie.title} onClick={() => handleMovieClick(movie)}/>
-                        </div>
+                        <MovieItems
+                            key={movie.id}
+                            movie={movie} />
                     );
                 })}
             </section>
