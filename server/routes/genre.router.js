@@ -24,7 +24,7 @@ router.get('/:id', (req, res) => {
 
   let id = req.params.id;
   console.log(`req.body.id is`, id);
-  
+
   //grab the genres of movies where id matches
   let queryText = `
     SELECT "name" from "genres"

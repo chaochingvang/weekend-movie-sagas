@@ -5,7 +5,7 @@ import './MovieList.css'
 import MovieItems from '../MovieItems/MovieItems.jsx';
 
 //mui imports
-import {Box} from '@mui/material'
+import { Box } from '@mui/material'
 import Card from '@mui/material/Card';
 import Button from '@mui/material/Button';
 import AddCircleOutlineOutlinedIcon from '@mui/icons-material/AddCircleOutlineOutlined';

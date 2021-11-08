@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router";
+import { useHistory } from "react-router-dom";
 import './MovieDetails.css'
 
 //mui imports
@@ -47,7 +47,7 @@ function MovieDetails() {
                 Back
             </Button>
         </> :
-        
+
         <>
             <Box sx={{
                 width: 300,
@@ -68,12 +68,12 @@ function MovieDetails() {
                         src={movie.poster} />
                     <h2>{movie.title}</h2>
                 </Card>
-                </Box>
+            </Box>
             <div className="details">
                 <Typography variant="body1">
-                <p style={{textDecoration:'underline'}}>Genres: </p>
-                <p>- {genres.map(genre => (<> {genre.name} -</>))} <br/></p>
-                <p>{movie.description}</p>
+                    <p style={{ textDecoration: 'underline' }}>Genres: </p>
+                    <p>- {genres.map(genre => (<> {genre.name} -</>))} <br /></p>
+                    <p>{movie.description}</p>
                     <Button
                         variant="outlined"
                         startIcon={<HomeIcon />}
@@ -86,7 +86,7 @@ function MovieDetails() {
                     </Button>
                 </Typography>
             </div>
-       </>}
+        </>}
     </>)
 }
 

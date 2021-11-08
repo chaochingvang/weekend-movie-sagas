@@ -27,7 +27,7 @@ function* fetchAllMovies() {
         //store response from db into reducer
         yield put({ type: 'SET_MOVIES', payload: movies.data });
 
-    } catch (err){
+    } catch (err) {
         console.log('get all error', err);
     }
 }
@@ -136,7 +136,7 @@ sagaMiddleware.run(rootSaga);
 ReactDOM.render(
     <React.StrictMode>
         <Provider store={storeInstance}>
-        <App />
+            <App />
         </Provider>
     </React.StrictMode>,
     document.getElementById('root')

@@ -73,69 +73,71 @@ function MovieForm() {
                         margin: 'auto',
                         paddingTop: '10px',
                     }}>
-                        <FormControl onSubmit={handleSubmit}>
-                            <TextField
-                                required
-                                label="title"
-                                value={movieInput.title}
-                                onChange={(event) =>
-                                    setMovieInput({ ...movieInput, title: event.target.value })
-                                }
-                            />
-                            <br />
-                            <TextField
-                                required
-                                label="image url"
-                                value={movieInput.poster}
-                                onChange={(event) =>
-                                    setMovieInput({ ...movieInput, poster: event.target.value })
-                                }
-                            />
-                            <br />
-                            <Select
-                                required
-                                value={movieInput.genre}
-                                onChange={(event) => setMovieInput({ ...movieInput, genre: event.target.value })}>
-                                <MenuItem value="0" disabled selected>Select A Genre</MenuItem>
-                                {genres.map((genre) => (
-                                    <MenuItem key={genre.id} value={genre.id}>{genre.name}</MenuItem>
-                                ))}
-                            </Select>
-                            <br />
-                            <TextField
-                                required
-                                multiline
-                                maxRows={5}
-                                label="description"
-                                value={movieInput.description}
-                                onChange={(event) => setMovieInput({ ...movieInput, description: event.target.value })}
-                            />
-                            <br />
-                            <Stack direction="row" spacing={25}>
-                                <Button
-                                    variant="outlined"
-                                    type="button"
-                                    startIcon={<ClearIcon />}
-                                    sx={{
-                                        color: 'black',
-                                    }}
-                                    onClick={() => history.push(`/`)}
-                                >
-                                    Cancel
-                                </Button>
-                                <Button
-                                    variant="outlined"
-                                    endIcon={<SaveIcon />}
-                                    sx={{
-                                        color: 'black',
-                                    }}
-                                    type="submit"
-                                >
-                                    Save
-                                </Button>
-                            </Stack>
+                        <form onSubmit={handleSubmit}>
+                            <FormControl >
+                                <TextField
+                                    required
+                                    label="title"
+                                    value={movieInput.title}
+                                    onChange={(event) =>
+                                        setMovieInput({ ...movieInput, title: event.target.value })
+                                    }
+                                />
+                                <br />
+                                <TextField
+                                    required
+                                    label="image url"
+                                    value={movieInput.poster}
+                                    onChange={(event) =>
+                                        setMovieInput({ ...movieInput, poster: event.target.value })
+                                    }
+                                />
+                                <br />
+                                <Select
+                                    required
+                                    value={movieInput.genre}
+                                    onChange={(event) => setMovieInput({ ...movieInput, genre: event.target.value })}>
+                                    <MenuItem value="0" disabled selected>Select A Genre</MenuItem>
+                                    {genres.map((genre) => (
+                                        <MenuItem key={genre.id} value={genre.id}>{genre.name}</MenuItem>
+                                    ))}
+                                </Select>
+                                <br />
+                                <TextField
+                                    required
+                                    multiline
+                                    maxRows={5}
+                                    label="description"
+                                    value={movieInput.description}
+                                    onChange={(event) => setMovieInput({ ...movieInput, description: event.target.value })}
+                                />
+                                <br />
+                                <Stack direction="row" spacing={25}>
+                                    <Button
+                                        variant="outlined"
+                                        type="button"
+                                        startIcon={<ClearIcon />}
+                                        sx={{
+                                            color: 'black',
+                                        }}
+                                        onClick={() => history.push(`/`)}
+                                    >
+                                        Cancel
+                                    </Button>
+                                    <Button
+                                        variant="outlined"
+                                        endIcon={<SaveIcon />}
+                                        sx={{
+                                            color: 'black',
+                                        }}
+                                        type="submit"
+                                    >
+                                        Save
+                                    </Button>
+                                </Stack>
 
-                        </FormControl>
+                            </FormControl>
+                        </form>
                     </Box>
                 </Card>
             </Box>
